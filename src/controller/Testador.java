@@ -7,7 +7,7 @@ public class Testador {
 
 	public static void main(String[] args) throws UnknownHostException, MongoException {
 		Conexao conect = new Conexao();
-		conect.buscarLogin();
+		//conect.buscarLogin("123");
 	}
 
 }

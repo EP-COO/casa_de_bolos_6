@@ -16,7 +16,7 @@ public class Conexao {
 	private Mongo conexao;
 	private DB db;
 	
-	public void buscarLogin() throws UnknownHostException, MongoException {
+	public void buscarLogin(String info) throws UnknownHostException, MongoException {
 		//this.conexao = new Mongo("localhost", 27017);
 		this.conexao = new Mongo();
 		this.db = conexao.getDB("testeCasaDeBolos");
@@ -29,7 +29,7 @@ public class Conexao {
 			String a = userAut.getString("pwd");
 			String b = "123";
 			System.out.println(userAut.get("pwd"));
-			if(a.equals(b)){
+			if(a.equals(info)){
 				System.out.println("START ERROS 2");
 				String nome = userAut.getString("name");
 				System.out.println(nome);

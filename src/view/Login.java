@@ -24,8 +24,10 @@ import javax.swing.JTextField;
 
 //IMPORTE DE FILES
 import model.Validador;
+import controller.Conexao;
 import model.ValidacaoException;
 import controller.BotaoAbrirTelas;
+
 
 public class Login extends BotaoAbrirTelas {
 
@@ -61,6 +63,7 @@ public class Login extends BotaoAbrirTelas {
 	protected JFrame frmLogin;
 	private JTextField txtAcesso;
 	private Validador validador = new Validador();
+	private Conexao conect = new Conexao();
 
 	public Login() {
 		initialize();
@@ -94,11 +97,9 @@ public class Login extends BotaoAbrirTelas {
 		JButton btnEntrar = new JButton("Entrar");
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {				
-				String acesso;
 				try {
-					acesso = validador.validaLogin(txtAcesso.getText(), "Acesso");
-					System.out.println(acesso);
-					
+					validador.validaLogin(txtAcesso.getText(), "Acesso");
+					conect.buscarLogin(txtAcesso.getText());
 				} catch (Exception e) {
 					JOptionPane.showInputDialog(
 						this,
