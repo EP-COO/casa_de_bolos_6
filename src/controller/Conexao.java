@@ -26,7 +26,10 @@ public class Conexao {
 		while(cursor.hasNext()){
 			System.out.println("START ERROS 1");
 			BasicDBObject userAut = (BasicDBObject) cursor.next();
-			if(userAut.get("pwd") == "123"){
+			String a = userAut.getString("pwd");
+			String b = "123";
+			System.out.println(userAut.get("pwd"));
+			if(a.equals(b)){
 				System.out.println("START ERROS 2");
 				String nome = userAut.getString("name");
 				System.out.println(nome);
