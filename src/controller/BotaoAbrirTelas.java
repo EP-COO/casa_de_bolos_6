@@ -13,7 +13,7 @@ public class BotaoAbrirTelas {
 	private static final long serialVersionUID = 1L;
 	private List<JPanel> paineis = new LinkedList<JPanel>();
 
-	protected void addActionListener(AbstractButton btn, String actionListenerName) {
+	public void addActionListener(AbstractButton btn, String actionListenerName) {
 		Object autoRef = this;
 		btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {

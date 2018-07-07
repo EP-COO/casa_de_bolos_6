@@ -12,6 +12,11 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.SwingConstants;
 
+//IMPORT FILES
+import controller.BotaoAbrirTelas;
+import view.CadastrarBolo;
+import view.Start;
+
 /* PARA DESCOMENTAR DEPOIS
 
 import visualizacao.CadastroBoloEspecial;
@@ -29,10 +34,12 @@ import visualizacao.PedidoBoloSimples;
 
 */
 
-public class Menu {
+public class Menu extends BotaoAbrirTelas{
 	
 	protected JFrame frmMenu;
 	protected JFrame frame;
+	
+	BotaoAbrirTelas open = new BotaoAbrirTelas();
 
 	public Menu() {
 		initialize();
@@ -51,29 +58,29 @@ public class Menu {
 		JMenuBar menuBar = new JMenuBar();
 		frmMenu.setJMenuBar(menuBar);
 		
-		JMenu mnCadastroCliente = new JMenu("Cadastros");
-		mnCadastroCliente.setFont(new Font("Segoe Print", Font.BOLD, 12));
-		menuBar.add(mnCadastroCliente);
+		JMenu mnCadastrar = new JMenu("Cadastrar");
+		mnCadastrar.setFont(new Font("Segoe Print", Font.BOLD, 12));
+		menuBar.add(mnCadastrar);
+		
+		JMenuItem mntmCadastrarBolo = new JMenuItem("Bolo");
+		mntmCadastrarBolo.setFont(new Font("Segoe Print", Font.BOLD, 12));
+		mnCadastrar.add(mntmCadastrarBolo);
+		addActionListener(mntmCadastrarBolo,  "abreTelaCadastrarBolo");
+		
+		
+		
+		
+		
 		
 		JMenuItem mntmCadastroCliente = new JMenuItem("Cadastro Cliente");
 		mntmCadastroCliente.setFont(new Font("Segoe Print", Font.BOLD, 12));
-		mnCadastroCliente.add(mntmCadastroCliente);
+		mnCadastrar.add(mntmCadastroCliente);
 		//addActionListener(mntmCadastroCliente,  "abreTelaCadastroCliente");
 		
 		JMenuItem mntmCadastroFuncionario = new JMenuItem("Cadastro Funcionario");
 		mntmCadastroFuncionario.setFont(new Font("Segoe Print", Font.BOLD, 12));
-		mnCadastroCliente.add(mntmCadastroFuncionario);
+		mnCadastrar.add(mntmCadastroFuncionario);
 		//addActionListener(mntmCadastroFuncionario,  "abreTelaCadastroFuncionario");
-		
-		JMenuItem mntmCadastroBoloSimples = new JMenuItem("Cadastro Bolo Simples");
-		mntmCadastroBoloSimples.setFont(new Font("Segoe Print", Font.BOLD, 12));
-		mnCadastroCliente.add(mntmCadastroBoloSimples);
-		//addActionListener(mntmCadastroBoloSimples,  "abreTelaCadastroBoloSimples");
-		
-		JMenuItem mntmCadastroBoloEspecial = new JMenuItem("Cadastro Bolo Especial");
-		mntmCadastroBoloEspecial.setFont(new Font("Segoe Print", Font.BOLD, 12));
-		mnCadastroCliente.add(mntmCadastroBoloEspecial);
-		//addActionListener(mntmCadastroBoloEspecial,  "abreTelaCadastroBoloEspecial");
 		
 		JMenu mnPedido = new JMenu("Pedido");
 		mnPedido.setFont(new Font("Segoe Print", Font.BOLD, 12));
@@ -131,6 +138,20 @@ public class Menu {
 		frmMenu.getContentPane().add(lblBemVindo);
 		//addActionListener(mntmListarClientes,  "abreTelaListaClientes");
 	}
+	
+	public void abreTelaCadastrarBolo(ActionEvent e) {
+		System.out.println("START ERROS 1");
+		CadastrarBolo cadastro = new CadastrarBolo();
+		System.out.println("START ERROS 2");
+		cadastro.frmCadastrarBolo.setVisible(true);
+		frmMenu.setVisible(false);
+		System.out.println("chegamos ao fim CLASSE MENU");
+	}
+	public void abreTela(ActionEvent e) {
+		Start window = new Start();
+		window.frmHome.setVisible(true);
+	}
+
 /*	
 	public void abreTelaCadastroCliente(ActionEvent e) {
 		CadastroCliente cadastroCliente = new CadastroCliente();
@@ -147,12 +168,6 @@ public class Menu {
 	public void abreTelaCadastroBoloSimples(ActionEvent e) {
 		CadastroBoloSimples cadastroBoloSimples = new CadastroBoloSimples();
 		cadastroBoloSimples.frmCadastraBoloSimples.setVisible(true);
-		frmMenu.setVisible(false);
-	}
-	
-	public void abreTelaCadastroBoloEspecial(ActionEvent e) {
-		CadastroBoloEspecial cadastroBoloEspecial = new CadastroBoloEspecial();
-		cadastroBoloEspecial.frmCadastraBoloEspecial.setVisible(true);
 		frmMenu.setVisible(false);
 	}
 	

@@ -13,6 +13,7 @@ import com.mongodb.BasicDBObject;
 
 
 public class Conexao {
+	
 	private Mongo conexao;
 	private DB db;
 	

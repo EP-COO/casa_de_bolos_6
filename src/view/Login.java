@@ -28,7 +28,6 @@ import controller.Conexao;
 import model.ValidacaoException;
 import controller.BotaoAbrirTelas;
 
-
 public class Login extends BotaoAbrirTelas {
 
 /* CODE PADRÃO DA TELA
